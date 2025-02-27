@@ -15,7 +15,9 @@
 ```txt
 /docs           # arquivos de documentação
 /src            # código fonte
-  ./fronteira   # interfaces com os atores
-  ./entidade    # modelos de dados e regras de negócio (uml)
-  ./controle    # ligação entre fronteira e entidade
+  ./view   # interfaces com os atores
+  ./business
+    ./entidade    # modelos de dados e regras de negócio (uml)
+    ./controle    # ligação entre fronteira e entidade
+  ./infra
 ```
