@@ -8,7 +8,7 @@
 
 ### Diagrama de Classe
 
-!['Diagrama de classe'](./docs/Diagrama%20de%20Classe.jpg)
+!['Diagrama de classe'](./docs/UML.jpg)
 
 ### Estrutura das pastas
 
