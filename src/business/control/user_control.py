@@ -1,17 +1,20 @@
-from abc import ABC
 from business.model import User
-from infra import UserPersistenceFile
+from infra import IUserPersistence
 
 
-class UserControl(ABC):
-    def add(self, user: User, persistence: UserPersistenceFile) -> User:
-        return persistence.save(user)
+class UserControl():
+    def __init__(self, persistence: IUserPersistence):
+        super().__init__()
+        self.persistence = persistence
 
-    def list(self, name: str, persistence: UserPersistenceFile) -> User: 
+    def add(self, user: User) -> User:
+        return self.persistence.save(user)
+
+    def list(self, name: str) -> User: 
         ...
 
-    def listAll(self, persistence: UserPersistenceFile) -> dict:
-        return persistence.getAll()
+    def listAll(self) -> dict:
+        return self.persistence.getAll()
 
-    def delete(self, user_id: int, persistence: UserPersistenceFile) -> User:
-        return persistence.delete(user_id)
+    def delete(self, user_id: int) -> User:
+        return self.persistence.delete(user_id)

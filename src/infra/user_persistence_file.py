@@ -18,3 +18,6 @@ class UserPersistenceFile(IUserPersistence):
         if user_id in self.__data:
             return self.__data.pop(user_id)
         return None
+
+    def update(self, user_id, name, email, password, cpf):
+        pass
