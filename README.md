@@ -4,7 +4,7 @@
 
 ### Diagrama de caso de uso
 
-!['Caso de Uso - Manter cliente'](./docs/DiagramaGerenciamentoDeUsuario.png)
+!['Caso de Uso - Manter cliente'](./docs/DiagramaDeCasosDeUso.jpg)
 
 ### Diagrama de Classe
 
