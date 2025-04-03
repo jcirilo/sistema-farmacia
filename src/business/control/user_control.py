@@ -1,6 +1,6 @@
 from business.model import User
 from infra import IUserPersistence
-
+from adapter.email_validator_adapter import EmailValidatorAdapter
 
 class UserControl():
     def __init__(self, persistence: IUserPersistence):
@@ -8,10 +8,13 @@ class UserControl():
         self.persistence = persistence
 
     def add(self, user: User) -> User:
+        if not self.email_validator.is_valid(user.get_email()):
+            raise ValueError("E-mail inválido.")
+            
         return self.persistence.save(user)
 
-    def list(self, name: str) -> User: 
-        ...
+    #def list(self, name: str) -> User: 
+    #    ...
 
     def listAll(self) -> dict:
         return self.persistence.getAll()
