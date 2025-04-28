@@ -4,7 +4,7 @@
 # Para rodar abra o terminal na pasta ./src e digite:
 # python -m view.app
 
-# lembre-se que o terminal precisa está aberto na pasta ./src
+# lembre-se que o terminal precisa estar aberto na pasta ./src
 # como no exemplo:
 
 # C:/User/sistema-farmacia/src >
