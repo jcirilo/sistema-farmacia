@@ -1,4 +1,4 @@
-from business.model import User
+from business.model import Customer
 from infra import IUserPersistence
 from adapter.email_validator_adapter import EmailValidatorAdapter
 
@@ -8,14 +8,14 @@ class UserControl():
         self.persistence = persistence
         self.email_validator = EmailValidatorAdapter()
 
-    def add(self, user: User) -> User:
-        if not self.email_validator.is_valid(user.get_email()):
+    def add(self, customer: Customer) -> Customer:
+        if not self.email_validator.is_valid(customer.email):
             raise ValueError("E-mail inválido.")
             
-        return self.persistence.save(user)
+        return self.persistence.save(customer)
 
-    def listAll(self) -> dict:
-        return self.persistence.getAll()
+    def listAll(self) -> list[Customer]:
+        return list(self.persistence.getAll())
 
-    def delete(self, user_id: int) -> User:
+    def delete(self, user_id: int) -> Customer:
         return self.persistence.delete(user_id)
