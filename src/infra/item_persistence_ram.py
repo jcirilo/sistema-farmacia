@@ -1,6 +1,7 @@
 from business.model import Item
 from .item_persistence import IItemPersistence
 
+
 class ItemPersistenceRam(IItemPersistence):
     def __init__(self):
         super().__init__()
