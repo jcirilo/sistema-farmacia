@@ -1,6 +1,7 @@
 from business.model import Customer
 from infra import IUserPersistence
 from adapter.email_validator_adapter import EmailValidatorAdapter
+from command.add_user_command import AddUserCommand
 
 class UserControl():
     def __init__(self, persistence: IUserPersistence):
@@ -11,8 +12,9 @@ class UserControl():
     def add(self, customer: Customer) -> Customer:
         if not self.email_validator.is_valid(customer.email):
             raise ValueError("E-mail inválido.")
-            
-        return self.persistence.save(customer)
+
+        command = AddUserCommand(self.persistence, customer)            
+        return command.execute()
 
     def listAll(self) -> list[Customer]:
         return list(self.persistence.getAll())

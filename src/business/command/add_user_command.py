@@ -1,5 +1,6 @@
 from business.command.command import Command
 from business.model import Customer
+from infra import IUserPersistence
 
 # Exceções personalizadas para tratamento de erros
 class InvalidLoginError(Exception):
@@ -8,18 +9,13 @@ class InvalidLoginError(Exception):
 class InvalidPasswordError(Exception):
     pass
 
-class AddUserCommand(Command):
-    def __init__(self, user_control, customer: Customer):
-        self.user_control = user_control
+class AddUserCommand:
+    def __init__(self, persistence: IUserPersistence, customer: Customer):
+        self.persistence = persistence
         self.customer = customer
 
     def execute(self) -> Customer:
-        # valida os campos antes de adicionar
-        self.validate_login(self.customer.name)
-        self.validate_password(self.customer.password)
-
-        # chama o user_control.add diretamente com o objeto Customer
-        return self.user_control.add(self.customer)
+        return self.persistence.save(self.customer)
 
     def validate_login(self, name):
         if not name:
