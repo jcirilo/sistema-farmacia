@@ -19,8 +19,7 @@ class UserControl():
         if not self.email_validator.is_valid(customer.email):
             raise ValueError("E-mail inválido.")
 
-        command = AddUserCommand(self.persistence, customer)            
-        return command.execute()
+        return self.persistence.save(customer)
 
     def listAll(self) -> list[Customer]:
         return list(self.persistence.getAll())
