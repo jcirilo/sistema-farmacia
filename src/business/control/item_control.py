@@ -1,4 +1,4 @@
-from business.model import Item
+from business.model.item import Item
 from infra import IItemPersistence
 
 class ItemControl:

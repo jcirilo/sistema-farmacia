@@ -1,9 +1,9 @@
 class Item:
     def __init__(self, id: int, name: str, stock: int, price: float):
-        self.__id = id
-        self.__name = name
-        self.__stock = stock
-        self.__price = price
+        self.id = id
+        self.name = name
+        self.stock = stock
+        self.price = price
 
     def get_id(self) -> int:
         return self.__id

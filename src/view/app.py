@@ -17,6 +17,8 @@ from infra import UserPersistenceRam
 from business.control import UserControl
 from business.model import Customer
 from business.command.add_user_command import AddUserCommand
+from infra.facade.sistema_facade import SistemaFacade
+
 
 def main():
     customer_db = UserPersistenceRam()
@@ -53,6 +55,22 @@ def main():
     print("\nLista de clientes:")
     for cliente in customer_control.listAll():
         print(f"ID: {cliente.id}, Nome: {cliente.name}")
+
+
+
+    facade = SistemaFacade()
+
+    # Cadastro
+    resultado = facade.cadastrar_produto("Dipirona", 50, 8.90)
+    if resultado['status'] == 'sucesso':
+        print(f"ID do produto: {resultado['id']}")
+
+    # Atualização parcial (só estoque)
+    facade.atualizar_produto(produto_id=1, estoque=45)
+
+    # Listagem completa
+    for produto in facade.listar_produtos():
+        print(f"{produto['id']}: {produto['nome']}")
 
 if __name__ == "__main__":
     main()
