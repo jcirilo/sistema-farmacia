@@ -16,10 +16,5 @@ jobs:
         python-version: '3.13' 
     - run: python src/view/app.py
 
-
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-
     - name: Run script
       run: python src/view/app.py
