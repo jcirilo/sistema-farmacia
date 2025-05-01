@@ -3,7 +3,7 @@ name: Run Main Script
 on:
   push:
     branches:
-      - main
+      - test-workflow
 
 jobs:
   run:
