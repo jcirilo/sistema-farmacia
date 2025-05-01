@@ -1,7 +1,13 @@
+import sys
+from pathlib import Path
 from business.model import Customer
 from infra import IUserPersistence
 from adapter.email_validator_adapter import EmailValidatorAdapter
-from command.add_user_command import AddUserCommand
+from business.command.add_user_command import AddUserCommand
+
+# Adiciona o diretório 'business' ao sys.path
+BUSINESS_DIR = Path(__file__).resolve().parent
+sys.path.append(str(BUSINESS_DIR))
 
 class UserControl():
     def __init__(self, persistence: IUserPersistence):
