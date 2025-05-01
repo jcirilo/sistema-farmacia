@@ -1,5 +1,5 @@
 from .user import User
-from .vendor import Vendor
+from .seller import Seller
 
 
 class Manager(User):
@@ -18,13 +18,10 @@ class Manager(User):
         self.__manager_name = manager_name
 
     def register_manager(self, new_manager: 'Manager'):
-        # registrar um novo gerente
         pass
 
-    def register_vendor(self, new_vendor: Vendor):
-        #  registrar um novo vendedor
+    def register_vendor(self, new_vendor: Seller):
         pass
 
-    def generate_sales_report_per_vendor(self, vendor: Vendor):
-        # gerar relatório de vendas por vendedor
+    def generate_sales_report_per_vendor(self, vendor: Seller):
         pass
