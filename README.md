@@ -6,9 +6,9 @@
 
 !['Caso de Uso - Manter cliente'](./docs/DiagramaDeCasosDeUso.png)
 
-### Diagrama de Classe
+### Diagrama de Classe de Análise
 
-!['Diagrama de classe'](./docs/UML_v4.jpg)
+!['Diagrama de classe'](./docs/UML_v6.jpg)
 
 ### Estrutura das pastas
 
