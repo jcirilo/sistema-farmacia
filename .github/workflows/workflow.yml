@@ -3,18 +3,13 @@ name: Run Main Script
 on:
   push:
     branches:
-      - controls
+      - main
 
 jobs:
   run:
     runs-on: ubuntu-22.04
 
     steps:
-      # Realiza o checkout do código com autenticação para repositórios privados
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
       # Configura o Python
       - uses: actions/setup-python@v5
         with:
